@@ -1,14 +1,37 @@
+@font-face {
+  font-family: "myFont";
+  src: url("assets/fonts/broken/broken-console-broken-console-regular-400.woff")
+      format("woff"),
+    url("assets/fonts/broken/broken-console-broken-console-bold-700.woff")
+      format("woff"),
+    url("assets/fonts/broken/broken-console-broken-console-shadow-700.woff")
+      format("woff");
+}
+
+@font-face {
+  font-family: "pixel";
+  src: url(assets/fonts/pixel/PublicPixel-z84yD.ttf);
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: "pixel", Arial, sans-serif;
+  background-color: black;
+  color: white;
 }
 
 #view-highscores {
   margin: 0;
-  font-size: 10px;
+  font-size: 18px;
   text-decoration: underline;
   font-weight: 600;
   cursor: pointer;
   display: inline-block;
+  font-family: "myFont", sans-serif;
+  color: purple;
+  background: linear-gradient(to bottom, rgb(52, 0, 57), rgb(220, 2, 187));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #container {
@@ -16,21 +39,42 @@ body {
   text-align: center;
 }
 
-#quiz {
-  margin-top: 20px;
-}
-
 h1 {
-  font-size: 28px;
+  margin-top: 20vh;
+  font-size: 48px;
+  font-family: "myFont";
+  color: rebeccapurple;
+  background: linear-gradient(to top, rgb(255, 39, 39), purple);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #startBtn {
-  font-size: 18px;
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
   border: none;
   cursor: pointer;
+  height: 20vh;
+}
+
+#quiz {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#timer {
+  position: fixed;
+  top: 2px;
+  right: 15px;
+}
+
+#question {
+  padding-bottom: 5px;
+  display: inline-block;
+  border-bottom: 2px solid rgb(172, 0, 86);
+  margin: 0px 20px 0px 20px;
 }
 
 ul {
@@ -38,17 +82,26 @@ ul {
   list-style-type: none;
   padding: 0;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-li {
+ul li {
   margin: 10px 0;
   cursor: pointer;
+  text-align: left;
 }
 
 #result {
   font-weight: bold;
-  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid purple;
+  width: 60%;
+  margin: auto;
+}
+
+#message {
+  padding-bottom: 10px;
 }
 
 #score {
@@ -56,29 +109,104 @@ li {
   margin-top: 10px;
 }
 
-#timer {
-  float: right;
-  margin-top: 10px;
+#saveBtn {
+  border: 1px dashed rgb(202, 26, 64);
+  font-family: "myFont";
+  color: purple;
+  background-color: black;
+  margin-top: 15px;
+  padding-top: 5px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+#backBtn {
+  border: 1px dashed rgb(202, 26, 64);
+  font-family: "myFont";
+  color: purple;
+  background-color: black;
+  margin-top: 15px;
+  padding-top: 5px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+#score-input {
+  background-color: black;
+  border: 1px dashed rgb(202, 26, 64);
+  font-family: "myFont";
+  color: rgb(255, 255, 255);
+  padding-top: 5px;
+  border-radius: 2px 0px 0px 2px;
+}
+
+input::placeholder {
+  color: rgba(251, 251, 251, 0.494);
+  font-family: "myFont";
+  font-size: 10px;
+}
+
+input:focus {
+  outline: none;
+}
+
+#save-initial {
+  border-top: 1px dashed rgb(202, 26, 64);
+  border-right: 1px dashed rgb(202, 26, 64);
+  border-bottom: 1px dashed rgb(202, 26, 64);
+  border-left: none;
+  font-family: "myFont";
+  color: purple;
+  background-color: black;
+  margin-top: 15px;
+  padding-top: 5px;
+  cursor: pointer;
+  border-radius: 0px 2px 2px 0px;
+}
+
+h2 {
+  font-family: "myFont";
+  color: rgb(208, 91, 114);
+  background: linear-gradient(to bottom, rgb(255, 39, 39), purple);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #score-board {
   text-align: center;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  border: 2px solid purple;
+  margin-top: 10px;
 }
 
 ol {
   display: inline-block;
   padding-left: 0;
   width: 45%;
+  color: rgb(252, 6, 63);
 }
 
 ol li {
   display: flex;
   justify-content: space-between;
   counter-increment: section;
+  padding-bottom: 10px;
 }
 
 ol li::before {
   content: counter(section) ".";
   text-align: right;
   margin-right: 0.5em;
+}
+
+#back-btn-container {
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  #quiz {
+    font-size: 10px;
+  }
 }

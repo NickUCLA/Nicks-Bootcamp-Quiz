@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nick's Coding Quiz</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Nick's Coding Quiz</title>
   </head>
   <body>
     <header>
       <p id="view-highscores">View Highscores</p>
     </header>
     <div id="container">
-      <h1>Nick's Coding Quiz</h1>
-      <button id="startBtn">Start Game</button>
+      <h1 class="h1">Nick's Coding Quiz</h1>
+      <img src="assets/images/startBtn.png" id="startBtn" />
       <div id="quiz" style="display: none">
         <div id="question"></div>
         <ul id="choices"></ul>
@@ -20,22 +20,26 @@
         <p id="timer">Time left: <span id="time">60</span></p>
       </div>
 
-      <div id="score-board" style="display: none">
-        <h2>High Scores</h2>
-        <ol id="score-ol"></ol>
+      <div id="initials" style="display: none">
+        <input
+          id="score-input"
+          placeholder="Enter your initials..."
+          autocomplete="off"
+        /><button id="save-initial">Save</button>
       </div>
 
-      <div id="initials" style="display: none">
-        <input id="score-input" placeholder="Enter your initials..." /><button
-          id="save-initial"
-        >
-          Save
-        </button>
-      </div>
       <div id="post-quiz" style="display: none">
         <button id="saveBtn">Save Score</button>
-        <button id="backBtn">Go Back</button>
       </div>
+    </div>
+
+    <div id="score-board" style="display: none">
+      <h2>High Scores</h2>
+      <ol id="score-ol"></ol>
+    </div>
+
+    <div id="back-btn-container" style="display: none">
+      <button id="backBtn">Go Back</button>
     </div>
 
     <script src="script.js"></script>
