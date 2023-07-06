@@ -31,7 +31,7 @@ var questions = [
     choices: ["1. <ul>", "2. <ol>", "3. <li>", "4. <ui>"],
     answer: "1. <ul>",
   },
-  /*{
+  {
     question: "JavaScript: What does the 'typeof' operator return?",
     choices: ["1. string", "2. number", "3. boolean", "4. undefined"],
     answer: "1. string",
@@ -124,7 +124,7 @@ var questions = [
       "4. font-family-style",
     ],
     answer: "1. font-family",
-  },*/
+  },
 ];
 
 var score = 0;
@@ -138,6 +138,7 @@ var highScores = [
 var initials;
 var timeoutID;
 
+// Starts the timer, hides start button and displays questions
 function startQuiz() {
   startBtnElem.style.display = "none";
   quizElem.style.display = "block";
@@ -154,9 +155,9 @@ function startTimer() {
     if (timeLeft === 0) {
       clearInterval(timerID);
       score += timeLeft;
+      // ends quiz by setting questions to 0 then calling getQuestion
       questions.length = 0;
       getQuestion();
-      // make questions = 0 and call getQuestion
     }
   }, 1000);
   console.log(timeLeft);
@@ -197,6 +198,7 @@ function getQuestion() {
     questions.splice(questionToRemove, 1);
   }
 
+  // checks the answer and displays next question if answered correct
   function checkAnswer(event) {
     var selectedAnswer = event.target.textContent;
     if (selectedAnswer === randomQuestion.answer) {
@@ -228,6 +230,7 @@ function restartTimeout() {
   startTimeout();
 }
 
+// gets initials and score from input and saves them to storage then displays scoreboard
 function saveScore() {
   loadHighScores();
   initials = inputElem.value;
@@ -256,6 +259,7 @@ function saveScore() {
   clearScoreboard();
   scoreBoard();
 }
+
 var isScoreboardShown = false;
 // creates the score board elem
 function scoreBoard() {
