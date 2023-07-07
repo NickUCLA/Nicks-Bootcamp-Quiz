@@ -160,7 +160,6 @@ function startTimer() {
       getQuestion();
     }
   }, 1000);
-  console.log(timeLeft);
   return timerID;
 }
 
@@ -215,7 +214,6 @@ function getQuestion() {
       setTimeout(restartTimeout, 100);
       score -= 5;
     }
-    console.log(score);
   }
 }
 
@@ -235,8 +233,6 @@ function saveScore() {
   loadHighScores();
   initials = inputElem.value;
 
-  console.log("Initials:", initials);
-
   if (("Initials:", initials)) {
     var highScore = {
       name: initials,
@@ -250,7 +246,6 @@ function saveScore() {
   });
 
   localStorage.setItem("highScores", JSON.stringify(highScores));
-  console.log(highScores);
 
   initialsElem.style.display = "none";
   quizElem.style.display = "none";
